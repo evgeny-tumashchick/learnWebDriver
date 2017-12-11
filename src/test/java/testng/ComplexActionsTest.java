@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.ChromeWebDriverSetup;
 import util.MyConstants;
@@ -12,11 +14,19 @@ import util.MyConstants;
 public class ComplexActionsTest {
     WebDriver driver;
 
-    @Test
-    public void complexActions() {
+    @BeforeMethod
+    public void beforeMethod() {
         driver = new ChromeDriver();
         ChromeWebDriverSetup.setDriver(driver);
+    }
 
+    @AfterMethod
+    public void afterMethod() {
+        driver.close();
+    }
+
+    @Test
+    public void complexActions() {
         driver.get(MyConstants.SELENIUM_DRAG_DROP_OTHER);
 
         WebElement boxToDrag = driver.findElement(By.xpath("//div[text()='I can be dragged anywhere']"));
@@ -35,9 +45,6 @@ public class ComplexActionsTest {
 
     @Test
     public void severalActionsDrawingTest() {
-        driver = new ChromeDriver();
-        ChromeWebDriverSetup.setDriver(driver);
-
         driver.get(MyConstants.SELENIUM_DRAW_PAINTER);
 
         WebElement canvas = driver.findElement(By.id("catch"));

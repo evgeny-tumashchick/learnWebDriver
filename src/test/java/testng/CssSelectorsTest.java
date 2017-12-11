@@ -4,17 +4,29 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.ChromeWebDriverSetup;
 import util.MyConstants;
 
 public class CssSelectorsTest {
 
+    WebDriver driver;
+
+    @BeforeMethod
+    public void beforeMethod() {
+        driver = new ChromeDriver();
+        ChromeWebDriverSetup.setDriver(driver);
+    }
+
+    @AfterMethod
+    public void afterMethod() {
+        driver.close();
+    }
+
     @Test
     public void cssSelectorsTest() {
-        WebDriver driver = new ChromeDriver();
-        ChromeWebDriverSetup.setDriver(driver);
-
         driver.get(MyConstants.GOOGLE_BY_URI);
 
         WebElement searchField = driver.findElement(By.id("lst-ib"));

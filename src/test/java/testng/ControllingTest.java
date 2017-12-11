@@ -5,7 +5,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import util.ChromeWebDriverSetup;
 import util.MyConstants;
 
@@ -17,19 +19,14 @@ public class ControllingTest {
 
     WebDriver driver;
 
-    @BeforeClass
-    public void beforeClass(){
-
-    }
-
     @BeforeMethod
-    public void beforeMethod(){
+    public void beforeMethod() {
         driver = new ChromeDriver();
         ChromeWebDriverSetup.setDriver(driver);
     }
 
     @AfterMethod
-    public void afterMethod(){
+    public void afterMethod() {
         driver.close();
     }
 
