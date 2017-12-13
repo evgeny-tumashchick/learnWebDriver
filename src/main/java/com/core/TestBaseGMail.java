@@ -23,6 +23,7 @@ public class TestBaseGMail extends TestBase {
 
     public TestBaseGMail() {
         this.userLogin = ProjectConstants.G_MAIL_LOGIN_TEST_USER;
+        //TODO Need to refactor this with Locators decision
         AccessProperties accessProperties = new AccessProperties();
         this.userPassword = accessProperties.getPropertyValueByName("GMailLoginTestUser.password");
     }
