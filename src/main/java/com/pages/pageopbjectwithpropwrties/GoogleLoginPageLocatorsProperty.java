@@ -4,9 +4,11 @@ import com.core.Locators;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static com.core.WebDriverContainer.findElement;
+import static com.core.WebDriverContainer.getDriver;
 
 public class GoogleLoginPageLocatorsProperty {
 
@@ -17,21 +19,22 @@ public class GoogleLoginPageLocatorsProperty {
     private static By nextButton = Locators.get("GoogleLoginPage.nextButton");
     private static By signInButton = Locators.get("GoogleLoginPage.signInButton");
 
-    public static void signInAccount(WebDriver driver, String login, String password) {
+    public static void signInAccount(String login, String password) {
         logger.info("Input login");
-        driver.findElement(loginInput).sendKeys(login);
-        driver.findElement(nextButton).click();
+        findElement(loginInput).sendKeys(login);
+        findElement(nextButton).click();
 
-        WebDriverWait waitPasswordFieldPresent = new WebDriverWait(driver, 10);
+        WebDriverWait waitPasswordFieldPresent = new WebDriverWait(getDriver(), 10);
         waitPasswordFieldPresent.until(ExpectedConditions.visibilityOfElementLocated(passwordInput));
+
         logger.info("Input password");
-        driver.findElement(passwordInput).sendKeys(password);
-        driver.findElement(signInButton).click();
+        findElement(passwordInput).sendKeys(password);
+        findElement(signInButton).click();
     }
 
-    public static void signInAccountOpenMailBox(WebDriver driver, String login, String password) {
-        signInAccount(driver, login, password);
-        GoogleHomePageLocatorsProperty.clickEmailButton(driver);
+    public static void signInAccountOpenMailBox(String login, String password) {
+        signInAccount(login, password);
+        GoogleHomePageLocatorsProperty.clickEmailButton();
     }
 
 }

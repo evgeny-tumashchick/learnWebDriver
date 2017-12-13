@@ -3,11 +3,13 @@ package com.core;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import java.util.concurrent.TimeUnit;
+import static com.core.WebDriverContainer.Driver.Chrome;
+import static com.core.WebDriverContainer.getDriver;
+import static com.core.WebDriverContainer.quitDriver;
+import static com.core.WebDriverContainer.setDriver;
 
 public abstract class TestBase {
 
@@ -17,13 +19,12 @@ public abstract class TestBase {
 
     @BeforeTest
     public void setup() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+        setDriver(Chrome);
+        driver = getDriver();
     }
 
     @AfterTest
     public void teardown() {
-        driver.quit();
+        quitDriver();
     }
 }

@@ -21,8 +21,8 @@ public class GMailTest extends TestBaseGMail {
 
     @Test
     public void loginToGmailVerifyEmailsExistsPageObjectLocatorsPropertyTest() {
-        GoogleHomePageLocatorsProperty.clickLoginButton(driver);
-        GoogleLoginPageLocatorsProperty.signInAccountOpenMailBox(driver, getUserLogin(), getUserPassword());
-        Assert.assertTrue(GoogleMailMainPageLocatorsProperty.countEmails(driver) > 0);
+        GoogleHomePageLocatorsProperty.clickLoginButton();
+        GoogleLoginPageLocatorsProperty.signInAccountOpenMailBox(getUserLogin(), getUserPassword());
+        Assert.assertTrue(GoogleMailMainPageLocatorsProperty.countEmails() > 0);
     }
 }

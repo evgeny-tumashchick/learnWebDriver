@@ -4,7 +4,8 @@ import com.core.Locators;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import static com.core.WebDriverContainer.findElement;
 
 public class GoogleHomePageLocatorsProperty {
 
@@ -13,13 +14,13 @@ public class GoogleHomePageLocatorsProperty {
     private static final By loginButton = Locators.get("GoogleHomePage.loginButton");
     private static final By emailButton = Locators.get("GoogleHomePage.emailButton");
 
-    public static void clickLoginButton(WebDriver driver) {
+    public static void clickLoginButton() {
         logger.info("Click login button to open user login form");
-        driver.findElement(loginButton).click();
+        findElement(loginButton).click();
     }
 
-    public static void clickEmailButton(WebDriver driver) {
+    public static void clickEmailButton() {
         logger.info("Click email button to enter email box");
-        driver.findElement(emailButton).click();
+        findElement(emailButton).click();
     }
 }
