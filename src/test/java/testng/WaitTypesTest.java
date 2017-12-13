@@ -1,5 +1,6 @@
 package testng;
 
+import com.util.URIConstants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.ChromeWebDriverSetup;
-import util.MyConstants;
 
 public class WaitTypesTest {
 
@@ -35,7 +35,7 @@ public class WaitTypesTest {
         //        //waits the page load
         //        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
-        driver.get(MyConstants.SELENIUM_DYNAMIC_LOAD);
+        driver.get(URIConstants.SELENIUM_DYNAMIC_LOAD);
 
         WebElement startButton = driver.findElement(By.cssSelector("#start>button"));
         startButton.click();

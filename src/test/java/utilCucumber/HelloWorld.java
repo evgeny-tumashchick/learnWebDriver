@@ -1,5 +1,6 @@
 package utilCucumber;
 
+import com.util.URIConstants;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import util.ChromeWebDriverSetup;
-import util.MyConstants;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -26,7 +26,7 @@ public class HelloWorld {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        driver.get(MyConstants.GOOGLE_BY_URI);
+        driver.get(URIConstants.GOOGLE_BY_URI);
     }
 
     @When("^search for \"([^\"]*)\"$")

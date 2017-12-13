@@ -1,5 +1,6 @@
 package testng;
 
+import com.util.URIConstants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +10,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.ChromeWebDriverSetup;
-import util.MyConstants;
 
 public class ComplexActionsTest {
     WebDriver driver;
@@ -27,7 +27,7 @@ public class ComplexActionsTest {
 
     @Test
     public void complexActions() {
-        driver.get(MyConstants.SELENIUM_DRAG_DROP_OTHER);
+        driver.get(URIConstants.SELENIUM_DRAG_DROP_OTHER);
 
         WebElement boxToDrag = driver.findElement(By.xpath("//div[text()='I can be dragged anywhere']"));
         assert boxToDrag.isDisplayed();
@@ -45,7 +45,7 @@ public class ComplexActionsTest {
 
     @Test
     public void severalActionsDrawingTest() {
-        driver.get(MyConstants.SELENIUM_DRAW_PAINTER);
+        driver.get(URIConstants.SELENIUM_DRAW_PAINTER);
 
         WebElement canvas = driver.findElement(By.id("catch"));
 

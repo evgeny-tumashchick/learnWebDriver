@@ -1,5 +1,6 @@
 package testng;
 
+import com.util.URIConstants;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +10,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.ChromeWebDriverSetup;
-import util.MyConstants;
 
 import javax.annotation.Nullable;
 
@@ -43,7 +43,7 @@ public class ControllingTest {
 
     @Test
     public void multipleWindowTest() {
-        driver.get(MyConstants.SELENIUM_MULTIPLE_WINDOWS);
+        driver.get(URIConstants.SELENIUM_MULTIPLE_WINDOWS);
 
         String defaultHandle = driver.getWindowHandle();
         driver.findElement(By.cssSelector(".example>a")).click();
@@ -63,7 +63,7 @@ public class ControllingTest {
 
     @Test
     public void jsSimpleAlertTest() {
-        driver.get(MyConstants.SELENIUM_JAVASCRIPT_ALERTS);
+        driver.get(URIConstants.SELENIUM_JAVASCRIPT_ALERTS);
 
         driver.findElement(By.cssSelector("[onclick='jsAlert()']")).click();
 
@@ -76,7 +76,7 @@ public class ControllingTest {
 
     @Test
     public void jsConfirmAlertTest() {
-        driver.get(MyConstants.SELENIUM_JAVASCRIPT_ALERTS);
+        driver.get(URIConstants.SELENIUM_JAVASCRIPT_ALERTS);
 
         driver.findElement(By.cssSelector("[onclick='jsConfirm()']")).click();
 
@@ -89,7 +89,7 @@ public class ControllingTest {
 
     @Test
     public void jsPromptAlertTest() {
-        driver.get(MyConstants.SELENIUM_JAVASCRIPT_ALERTS);
+        driver.get(URIConstants.SELENIUM_JAVASCRIPT_ALERTS);
 
         driver.findElement(By.cssSelector("[onclick='jsPrompt()']")).click();
 
@@ -106,7 +106,7 @@ public class ControllingTest {
 
     @Test
     public void framesTest() {
-        driver.get(MyConstants.SELENIUM_NESTED_FRAMES);
+        driver.get(URIConstants.SELENIUM_NESTED_FRAMES);
 
         driver.switchTo().frame("frame-top");
         driver.switchTo().frame("frame-left");

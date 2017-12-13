@@ -1,6 +1,6 @@
-package util;
+package com.util;
 
-public class MyConstants {
+public class URIConstants {
     public static final String GOOGLE_BY_URI = "https://google.by";
 
     private static final String INTERNET_HEROKUAPP_COM = "http://the-internet.herokuapp.com";
