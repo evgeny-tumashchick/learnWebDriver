@@ -2,3 +2,5 @@
 *.iml
 target
 logs
+src/test/resources/log4j2fileTepm.properties
+src/test/resources/notes.txt

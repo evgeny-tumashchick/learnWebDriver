@@ -1,18 +1,20 @@
 package com.pages.pageopbjectwithpropwrties;
 
 import com.core.Locators;
+import com.core.PageBase;
+import com.helpers.Waiter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.core.WebDriverContainer.findElement;
-import static com.core.WebDriverContainer.getDriver;
 
-public class GoogleLoginPageLocatorsProperty {
+public class GoogleLoginPageLocatorsProperty extends PageBase {
 
     final static Logger logger = LogManager.getLogger(GoogleLoginPageLocatorsProperty.class);
+
+    private static final String TITLE = "Вход – Google Аккаунты";
 
     private static By loginInput = Locators.get("GoogleLoginPage.loginInput");
     private static By passwordInput = Locators.get("GoogleLoginPage.passwordInput");
@@ -24,8 +26,7 @@ public class GoogleLoginPageLocatorsProperty {
         findElement(loginInput).sendKeys(login);
         findElement(nextButton).click();
 
-        WebDriverWait waitPasswordFieldPresent = new WebDriverWait(getDriver(), 10);
-        waitPasswordFieldPresent.until(ExpectedConditions.visibilityOfElementLocated(passwordInput));
+        Waiter.waitFor(ExpectedConditions.visibilityOfElementLocated(passwordInput));
 
         logger.info("Input password");
         findElement(passwordInput).sendKeys(password);
@@ -37,4 +38,7 @@ public class GoogleLoginPageLocatorsProperty {
         GoogleHomePageLocatorsProperty.clickEmailButton();
     }
 
+    public static void shouldAppear() {
+        shouldAppear(TITLE);
+    }
 }
