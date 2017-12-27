@@ -13,4 +13,6 @@ public class URIConstants {
 
     public static final String SELENIUM_DRAG_DROP_OTHER = "http://mzabriskie.github.io/react-draggable/example/";
     public static final String SELENIUM_DRAW_PAINTER = "https://www.youidraw.com/apps/painter/#";
+
+    public static final String SELENIUM_HTML5_VIDEO = "https://www.w3schools.com/html/html5_video.asp";
 }
