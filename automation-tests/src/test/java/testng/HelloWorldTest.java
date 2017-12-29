@@ -1,33 +1,16 @@
 package testng;
 
+import com.tumashchick.common.base.TestBase;
 import com.tumashchick.common.utils.URIConstants;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import util.ChromeWebDriverSetup;
 
 import java.util.List;
 
 import static org.testng.Assert.fail;
 
-public class HelloWorldTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void beforeMethod() {
-        driver = new ChromeDriver();
-        ChromeWebDriverSetup.setDriver(driver);
-    }
-
-    @AfterMethod
-    public void afterMethod() {
-        driver.close();
-    }
+public class HelloWorldTest extends TestBase {
 
     @Test
     public void googleTest() {
@@ -45,8 +28,5 @@ public class HelloWorldTest {
                 fail("Not all elements contain search param");
             }
         }
-
-        driver.quit();
     }
-
 }

@@ -1,5 +1,6 @@
 package testng;
 
+import com.tumashchick.common.base.TestBase;
 import com.tumashchick.common.utils.URIConstants;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
@@ -7,32 +8,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import util.ChromeWebDriverSetup;
 
 import javax.annotation.Nullable;
 
 import static org.junit.Assert.assertEquals;
 
-public class ControllingTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void beforeMethod() {
-        driver = new ChromeDriver();
-        ChromeWebDriverSetup.setDriver(driver);
-    }
-
-    @AfterMethod
-    public void afterMethod() {
-        driver.close();
-    }
+public class ControllingTest extends TestBase {
 
     @Test(enabled = false)
     public void customWaitTest() {

@@ -1,29 +1,12 @@
 package testng;
 
+import com.tumashchick.common.base.TestBase;
 import com.tumashchick.common.utils.URIConstants;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import util.ChromeWebDriverSetup;
 
-public class XpathSelectorsTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void beforeMethod() {
-        driver = new ChromeDriver();
-        ChromeWebDriverSetup.setDriver(driver);
-    }
-
-    @AfterMethod
-    public void afterMethod() {
-        driver.close();
-    }
+public class XpathSelectorsTest extends TestBase {
 
     @Test
     public void xpathSelectorsTest() {
@@ -38,5 +21,4 @@ public class XpathSelectorsTest {
         WebElement xpathSelectorResult = driver.findElement(By.xpath("//*[@class='rc']//a"));
         xpathSelectorResult.click();
     }
-
 }
