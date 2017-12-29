@@ -1,0 +1,18 @@
+Exceute for cucumber tests in bamboo
+
+clean test
+-DrunSuite=**/cp_wcms/tests/RunTests.class -Dwebdriver.browser.name=chrome
+-Drunqaa.app.name=cp_wcms "-Dcucumber.options=--tags @qa"
+-Denv=portal -Dexecution.scope=untested,failed
+"-Dtestrail.run.name=1 CP Framework" "-Dtestrail.run.config=GC, INP"
+-Dtestrail.integration.enabled=true
+-Dexec.browser.filter=on
+-Dwebdriver.host=localhost -Dwebdriver.port=4444
+-Dconnector.properties.path=src/test/java/autotests/apps/cp_wcms/
+-Dtestrail.cert=PROD.cer
+-Dtestrail.bamboo.redirect=on
+-Dtestrail.skip.enabled=on
+-DbambooBuildNumber=${bamboo.buildNumber}
+-DbambooplanKey=${bamboo.planKey}
+-DbambooShortJobKey=${bamboo.shortJobKey}
+-Dtestrail.skip.enabled=on
